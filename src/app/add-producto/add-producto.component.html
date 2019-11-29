@@ -1,0 +1,38 @@
+<h3>Create Client</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="productosaveform" #saveproducto (ngSubmit)="saveProducto(saveProducto)">
+          <div class="form-group">
+              <label for="descripcion">Descripcion producto</label>
+              <input type="text" class="form-control"  formControlName="descripcion" data-toggle="tooltip" 
+                 data-placement="right" title="Enter Client Name" >
+              <div class="alert alert-danger" *ngIf = "(ProductoDescripcion.touched) && (ProductoDescripcion.invalid)" 
+                style="margin-top: 5px;">
+                  <span *ngIf="ProductoDescripcion.errors.required">Descripcion es requerida</span>
+                    <span *ngIf = "ProductoDescripcion.errors.minlength"> 
+                        Minino de letras
+                    </span>                   
+                </div>
+          </div>
+  
+  
+          <button type="submit" class="btn btn-success">Agregar Producto</button>
+      </form>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <div [hidden]="!submitted">
+         <h4> Produto Descripcion</h4>
+         <button (click)="addProductoForm()" class='btn btn-primary'>Agregar Otro Cliente</button>
+      </div>      
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+
